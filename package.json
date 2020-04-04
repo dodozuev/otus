@@ -1,0 +1,19 @@
+{
+  "name": "assignment",
+  "version": "1.0.0",
+  "description": "Assignment for Otus React course",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dodozuev/otus.git"
+  },
+  "author": "Dmitry Zuev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dodozuev/otus/issues"
+  },
+  "homepage": "https://github.com/dodozuev/otus#readme"
+}
