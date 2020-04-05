@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/dodozuev/otus#readme",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
     "babel-core": "^6.26.3",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
