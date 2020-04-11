@@ -1,8 +1,12 @@
 import React from "react";
 
-export const helloElement = (name: string) => (
+export interface HelloElementProps {
+  name: string;
+}
+
+export const HelloElement = (props: HelloElementProps) => (
   <>
-    <h3>Привет, {name}</h3>
+    <h3>Привет, {props.name}</h3>
     <button>Нажать кнопочку</button>
   </>
 );
