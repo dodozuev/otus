@@ -1,10 +1,11 @@
-import { parser } from "./parser";
-
 import { firstPrioritiesCalc, secondPrioritiesCalc } from "./engine";
+
+import { parser } from "./parser";
 
 export const runner = (line: string): number => {
   const stack = parser(line);
 
+  console.log(stack);
   if (stack === null) {
     throw new TypeError("Unexpected string");
   }

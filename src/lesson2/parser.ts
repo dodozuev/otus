@@ -1,5 +1,5 @@
 import { isNumber } from "./helpers";
-import { mathOperators } from "./mathOperators";
+import { tupleItemMathOperators } from "./mathOperators";
 
 export type ParsedLineType = (number | string)[];
 
@@ -13,7 +13,7 @@ export const parser = (line: string): ParsedLineType | null => {
     const isValidOperatorPush =
       isNumber(prevItem) &&
       !isNumber(item) &&
-      mathOperators.hasOwnProperty(item);
+      tupleItemMathOperators.hasOwnProperty(item);
 
     if (isValidNumberPush) {
       result.push(Number(item));

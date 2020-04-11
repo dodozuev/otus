@@ -1,10 +1,11 @@
+import {
+  mathOperatorsPriorities,
+  mathPriorities,
+  tupleItemMathOperators,
+} from "./mathOperators";
+
 import { ParsedLineType } from "./parser";
 import { isNumber } from "./helpers";
-import {
-  mathOperators,
-  mathPriorities,
-  mathOperatorsPriorities,
-} from "./mathOperators";
 
 const [FIRST, SECOND] = mathPriorities;
 
@@ -14,12 +15,12 @@ export const firstPrioritiesCalc = (stack: ParsedLineType): ParsedLineType =>
     const item = result[result.length - 1];
 
     if (!isNumber(String(item)) && mathOperatorsPriorities[item] === FIRST) {
-      if (!mathOperators[item]) {
+      if (!tupleItemMathOperators[item]) {
         throw new TypeError("Unexpected stack!");
       }
       result = [
         ...result.slice(0, -2),
-        mathOperators[item](Number(prevItem), Number(nextItem)),
+        tupleItemMathOperators[item](Number(prevItem), Number(nextItem)),
       ];
     } else {
       result.push(nextItem);
@@ -36,7 +37,7 @@ export const secondPrioritiesCalc = (stack: ParsedLineType): number =>
     }
 
     if (!isNumber(String(item)) && mathOperatorsPriorities[item] === SECOND) {
-      result = mathOperators[item](Number(result), Number(nextItem));
+      result = tupleItemMathOperators[item](Number(result), Number(nextItem));
     }
     return result;
   }, Number(stack[0]));
