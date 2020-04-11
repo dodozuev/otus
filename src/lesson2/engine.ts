@@ -1,6 +1,7 @@
 import {
   mathOperatorsPriorities,
   mathPriorities,
+  singleItemMathOperators,
   tupleItemMathOperators,
 } from "./mathOperators";
 
@@ -15,13 +16,21 @@ export const firstPrioritiesCalc = (stack: ParsedLineType): ParsedLineType =>
     const item = result[result.length - 1];
 
     if (!isNumber(String(item)) && mathOperatorsPriorities[item] === FIRST) {
-      if (!tupleItemMathOperators[item]) {
-        throw new TypeError("Unexpected stack!");
+      if (tupleItemMathOperators[item]) {
+        result = [
+          ...result.slice(0, -2),
+          tupleItemMathOperators[item](Number(prevItem), Number(nextItem)),
+        ];
+      } else {
+        if (singleItemMathOperators[item]) {
+          result = [
+            ...result.slice(0, -2),
+            singleItemMathOperators[item](Number(prevItem)),
+          ];
+        } else {
+          throw new TypeError("Unexpected stack");
+        }
       }
-      result = [
-        ...result.slice(0, -2),
-        tupleItemMathOperators[item](Number(prevItem), Number(nextItem)),
-      ];
     } else {
       result.push(nextItem);
     }

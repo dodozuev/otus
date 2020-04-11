@@ -62,6 +62,9 @@ const [FIRST, SECOND] = mathPriorities;
 export const mathOperatorsPriorities: { [key: string]: number } = {
   "*": FIRST,
   "/": FIRST,
+  "^": FIRST,
+  "!": FIRST,
+  "**": FIRST,
   "+": SECOND,
   "-": SECOND,
 };
