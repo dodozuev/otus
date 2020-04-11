@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "npx webpack --mode production",
+    "calc": "npx ts-node src/lesson2",
     "watch": "webpack --watch --mode=development",
     "start": "npx webpack-dev-server --mode=development",
     "lint": "npx eslint --ext .js,.jsx,.ts,.tsx src/"

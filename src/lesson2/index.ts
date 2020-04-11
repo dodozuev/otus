@@ -1,5 +1,4 @@
 import { createInterface } from "readline";
-
 import { runner } from "./runner";
 
 const rl = createInterface({
@@ -21,6 +20,7 @@ const question = (): Promise<null> =>
   });
 
 async function app(): Promise<null> {
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     await question();
   }
