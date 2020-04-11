@@ -1,4 +1,12 @@
-import { add, div, minus, mul, power, square } from "./mathOperators";
+import {
+  add,
+  div,
+  factorial,
+  minus,
+  mul,
+  power,
+  square,
+} from "./mathOperators";
 
 describe("mathOperators test cases", () => {
   it("mul 1 * 2 to equal 2", () => {
@@ -35,5 +43,11 @@ describe("mathOperators test cases", () => {
   });
   it("square 1 to equal 1", () => {
     expect(square(1)).toBe(1);
+  });
+  it("factorial of 0 to be 1", () => {
+    expect(factorial(0)).toBe(1);
+  });
+  it("factorial of 4 to be 4*3*2", () => {
+    expect(factorial(4)).toBe(4 * 3 * 2);
   });
 });

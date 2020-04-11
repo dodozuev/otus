@@ -30,7 +30,7 @@ export const power: ScalarOperationType = (
 };
 
 export const factorial: SingleVariableType = (value: number): number => {
-  if (value === 0) return 0;
+  if (value === 0) return 1;
 
   let result = 1;
   for (let i = 1; i <= value; i++) {
