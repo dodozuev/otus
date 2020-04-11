@@ -23,8 +23,9 @@ export const firstPrioritiesCalc = (stack: ParsedLineType): ParsedLineType =>
         ];
       } else {
         if (singleItemMathOperators[item]) {
+          console.log("singleItemMathOperators");
           result = [
-            ...result.slice(0, -2),
+            ...result.slice(0, -1),
             singleItemMathOperators[item](Number(prevItem)),
           ];
         } else {

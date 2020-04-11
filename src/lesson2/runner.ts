@@ -1,14 +1,16 @@
 import { firstPrioritiesCalc, secondPrioritiesCalc } from "./engine";
 
 import { parser } from "./parser";
+import { replaceSingleOperations } from "./helpers";
 
 export const runner = (line: string): number => {
-  const stack = parser(line);
+  let stack = parser(line);
 
-  console.log(stack);
   if (stack === null) {
     throw new TypeError("Unexpected string");
   }
+
+  stack = replaceSingleOperations(stack);
 
   const firstPrioritiesRes = firstPrioritiesCalc(stack);
 
