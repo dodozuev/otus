@@ -34,7 +34,10 @@
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
+    "@emotion/styled": "^10.0.27",
     "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-docs": "^5.3.18",
+    "@storybook/addon-knobs": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@storybook/preset-typescript": "^3.0.0",
@@ -68,7 +71,9 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
-    "react": "^16.13.1"
+    "emotion": "^10.0.27",
+    "react": "^16.13.1",
+    "storybook-addon-react-docgen": "^1.2.32"
   },
   "loki": {
     "configurations": {
