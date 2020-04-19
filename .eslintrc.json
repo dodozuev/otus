@@ -1,9 +1,4 @@
 {
-  "env": {
-    "browser": true,
-    "es6": true,
-    "node": true
-  },
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -15,13 +10,27 @@
     }
   },
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 2018,
-    "sourceType": "module"
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "react/prop-types": 0
   },
-  "plugins": ["@typescript-eslint"],
-  "rules": {}
+  "parserOptions": {
+    "sourceType": "module",
+    "parser": "babel-eslint",
+    "ecmaVersion": 2018
+  },
+  "overrides": [
+    {
+      "files": ["webpack.config.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": ["off"]
+      }
+    }
+  ]
 }
