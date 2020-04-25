@@ -26,6 +26,6 @@ test("Wrapper returns array of coins for several coin values", () => {
   const wrapper = mount(<Wallet coins={coinValues} ownerName={ownerName} />);
   console.log(wrapper.debug());
 
-  const coinsCount = wrapper.find({ "data-testid": "coin" }).length;
-  expect(coinsCount).toBe(coinValues.length * 2); // TODO: узнать, как обходить проблему с копируемыми testid
+  const coinsCount = wrapper.find("Coin").length;
+  expect(coinsCount).toBe(coinValues.length); // TODO: узнать, как обходить проблему с копируемыми testid
 });
