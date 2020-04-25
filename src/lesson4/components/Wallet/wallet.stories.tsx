@@ -1,4 +1,4 @@
-import { boolean, text, withKnobs } from "@storybook/addon-knobs";
+import { text, withKnobs } from "@storybook/addon-knobs";
 
 import { Coin } from "./components/WalletItem/coin";
 import React from "react";
