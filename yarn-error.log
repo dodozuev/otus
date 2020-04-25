@@ -1,0 +1,118 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js
+
+PATH: 
+  C:\Python38\Scripts\;C:\Python38\;C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_131\bin\;C:\Windows\Microsoft.NET\Framework64\v4.0.30319;C:\Program Files\OpenVPN\bin;C:\Projects\jkovaleva\dodo-is-autotests\packages\SpecFlow.2.1.0\tools;C:\Program Files (x86)\PuTTY\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\nodejs\;C:\Program Files\TortoiseGit\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\Users\d.zuev\AppData\Local\Microsoft\WindowsApps;C:\Users\d.zuev\AppData\Local\Apps\ScaleFT\bin\;C:\Users\d.zuev\AppData\Roaming\npm;C:\Users\d.zuev\.dotnet\tools;C:\Users\d.zuev\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\d.zuev\AppData\Local\Programs\Fiddler;C:\dev;C:\tools\helm;
+
+Yarn version: 
+  1.13.0
+
+Node version: 
+  12.13.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\Dom\otus\node_modules\.cache\storybook'
+
+npm manifest: 
+  {
+    "name": "assignment",
+    "version": "1.0.0",
+    "description": "Assignment for Otus React course",
+    "main": "index.js",
+    "scripts": {
+      "test": "jest",
+      "build": "npx webpack --mode production",
+      "calc": "npx ts-node src/lesson2",
+      "watch": "webpack --watch --mode=development",
+      "start": "npx webpack-dev-server --mode=development",
+      "lint": "npx eslint --ext .js,.jsx,.ts,.tsx src/",
+      "storybook": "start-storybook -p 6006",
+      "build-storybook": "build-storybook"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/dodozuev/otus.git"
+    },
+    "author": "Dmitry Zuev",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/dodozuev/otus/issues"
+    },
+    "husky": {
+      "pre-commit": "npm test && npm run lint",
+      "pre-push": "npm test && npm run lint"
+    },
+    "homepage": "https://github.com/dodozuev/otus#readme",
+    "devDependencies": {
+      "@babel/cli": "^7.8.4",
+      "@babel/core": "^7.9.0",
+      "@babel/plugin-proposal-class-properties": "^7.8.3",
+      "@babel/preset-env": "^7.9.0",
+      "@babel/preset-react": "^7.9.4",
+      "@babel/preset-typescript": "^7.9.0",
+      "@emotion/styled": "^10.0.27",
+      "@storybook/addon-actions": "^5.3.18",
+      "@storybook/addon-docs": "^5.3.18",
+      "@storybook/addon-knobs": "^5.3.18",
+      "@storybook/addon-links": "^5.3.18",
+      "@storybook/addons": "^5.3.18",
+      "@storybook/preset-typescript": "^3.0.0",
+      "@storybook/react": "^5.3.18",
+      "@types/jest": "^25.2.1",
+      "@typescript-eslint/eslint-plugin": "^2.26.0",
+      "@typescript-eslint/parser": "^2.26.0",
+      "babel-core": "^6.26.3",
+      "babel-jest": "^25.3.0",
+      "babel-loader": "^8.1.0",
+      "enzyme": "^3.11.0",
+      "enzyme-adapter-react-16": "^1.15.2",
+      "eslint": "^6.8.0",
+      "eslint-config-prettier": "^6.10.1",
+      "eslint-plugin-jest": "^23.8.2",
+      "eslint-plugin-prettier": "^3.1.2",
+      "eslint-plugin-react": "^7.19.0",
+      "html-webpack-plugin": "^4.0.3",
+      "husky": "^4.2.3",
+      "jest": "^25.2.4",
+      "lint": "^0.7.0",
+      "loki": "^0.20.3",
+      "prettier": "^2.0.2",
+      "raw-loader": "^4.0.0",
+      "react-dom": "^16.13.1",
+      "ts-node": "^8.8.2",
+      "typescript": "^3.8.3",
+      "webpack": "^4.42.1",
+      "webpack-cli": "^3.3.11",
+      "webpack-dev-server": "^3.10.3"
+    },
+    "dependencies": {
+      "@babel/polyfill": "^7.8.7",
+      "emotion": "^10.0.27",
+      "react": "^16.13.1",
+      "storybook-addon-react-docgen": "^1.2.32"
+    },
+    "loki": {
+      "configurations": {
+        "chrome.laptop": {
+          "target": "chrome.docker",
+          "width": 1366,
+          "height": 768,
+          "deviceScaleFactor": 1,
+          "mobile": false
+        },
+        "chrome.iphone7": {
+          "target": "chrome.docker",
+          "preset": "iPhone 7"
+        }
+      }
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

@@ -1,4 +1,4 @@
-import { Coin } from "./coin";
+import { Coin } from "./Coin";
 import React from "react";
 import { mount } from "enzyme";
 
