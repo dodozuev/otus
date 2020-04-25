@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 
-import { Coin } from "./components/WalletItem/coin";
 import { WalletStyled } from "./wallet.styles";
 
 interface WalletProps {
   ownerName: string;
-  coins: number[];
 }
 
 interface WalletState {
@@ -34,9 +32,7 @@ export class Wallet extends Component<WalletProps, WalletState> {
     ) : (
       <WalletStyled>
         <span>{this.props.ownerName + "'s wallet"}</span>
-        {this.props.coins.map((c, index) => (
-          <Coin key={index} value={c} />
-        ))}
+        {this.props.children}
       </WalletStyled>
     );
   }
