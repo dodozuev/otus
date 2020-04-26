@@ -5,9 +5,10 @@ import React from "react";
 
 export const LabeledInputStory = () => (
   <LabeledInput
-    inputStyle="number"
+    inputType="number"
     label={text("Labeled input", "Labeled input")}
-    onChange={() => {}}
+    valueUpdated={() => alert("value updated")}
+    value={121}
   />
 );
 

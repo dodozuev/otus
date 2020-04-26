@@ -1,4 +1,9 @@
-import { InputStyled } from "./LabeledInput.styles";
+import {
+  InputStyled,
+  LabelInputContainer,
+  LabelStyled,
+} from "./LabeledInput.styles";
+
 import React from "react";
 
 export interface LabeledInputProps {
@@ -9,18 +14,16 @@ export interface LabeledInputProps {
 }
 
 export const LabeledInput = (props: LabeledInputProps) => {
-  console.log("labeled input value", props.value);
   return (
-    <>
-      <label>{props.label}</label>
+    <LabelInputContainer>
+      <LabelStyled>{props.label}</LabelStyled>
       <InputStyled
         type={props.inputType}
         onChange={(e) => {
-          console.log("e.t.v", e.target.value);
           props.valueUpdated(e.target.value);
         }}
         value={props.value}
       ></InputStyled>
-    </>
+    </LabelInputContainer>
   );
 };

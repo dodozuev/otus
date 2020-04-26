@@ -6,8 +6,21 @@ export const InputStyled = styled.input`
   color: "palevioletred";
   background: papayawhip;
   border: none;
+  box-sizing: border-box;
+  height: 52px;
   border-radius: 1em;
-  text-align: center;
   font-size: inherit;
-  width: 3em;
+  text-align: inherit;
+  width: 100%;
+`;
+
+export const LabelStyled = styled.label`
+  height: 1em;
+  display: block;
+`;
+
+export const LabelInputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
