@@ -12,11 +12,14 @@ interface MenuData {
   play: boolean;
 }
 
-const initialFormProps = {
+const initialFormProps: MenuData = {
   fieldSize: 400,
   fractalCount: 1,
   fractalDepth: 5,
-} as MenuData;
+  baseColor: "#000000",
+  play: false,
+  playbackSpeed: 0,
+};
 
 interface MenuProps {
   onSubmit: (values: MenuData) => void;
