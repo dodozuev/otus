@@ -1,5 +1,6 @@
+import React, { Component } from "react";
+
 import { CoinStyled } from "./coin.styles";
-import React from "react";
 
 export const AvailableCoinValues = [1, 2, 5, 10];
 
@@ -8,16 +9,25 @@ export interface CoinProps {
   onClick?: () => void;
 }
 
-export const Coin = (props: CoinProps) => {
-  if (!AvailableCoinValues.some((x) => x === props.value))
-    throw "Cannot create a coin with this value";
+export class Coin extends Component<CoinProps> {
+  componentDidMount() {
+    if (!AvailableCoinValues.includes(this.props.value))
+      throw "Cannot create a coin with this value";
+  }
 
-  return (
-    <CoinStyled
-      data-testid="coin"
-      onClick={() => (props.onClick ? props.onClick : () => {})}
-    >
-      {props.value}
-    </CoinStyled>
-  );
-};
+  componentDidUpdate(prevProps) {
+    if (this.props.value != prevProps.value)
+      alert("Warning: the coin value changed to " + this.props.value);
+  }
+
+  render() {
+    return (
+      <CoinStyled
+        data-testid="coin"
+        onClick={this.props.onClick ? this.props.onClick : () => {}}
+      >
+        {this.props.value}
+      </CoinStyled>
+    );
+  }
+}
