@@ -11,7 +11,7 @@ export interface CoinProps {
 
 export class Coin extends Component<CoinProps> {
   componentDidMount() {
-    if (!AvailableCoinValues.some((x) => x === this.props.value))
+    if (!AvailableCoinValues.includes(this.props.value))
       throw "Cannot create a coin with this value";
   }
 
@@ -24,7 +24,7 @@ export class Coin extends Component<CoinProps> {
     return (
       <CoinStyled
         data-testid="coin"
-        onClick={() => (this.props.onClick ? this.props.onClick : () => {})}
+        onClick={this.props.onClick ? this.props.onClick : () => {}}
       >
         {this.props.value}
       </CoinStyled>
