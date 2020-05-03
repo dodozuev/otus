@@ -1,32 +1,11 @@
 import { ButtonStyled, FormStyled, MenuStyled } from "./Menu.styles";
 import React, { useState } from "react";
 
+import { FractalProps } from "../FractalWindow";
 import { LabeledInput } from "./components/LabeledInput";
 
-interface MenuData {
-  fieldSize: number;
-  fractalCount: number;
-  fractalDepth: number;
-  baseColor: string;
-  playbackSpeed: number;
-  play: boolean;
-}
-
-const initialFormProps: MenuData = {
-  fieldSize: 400,
-  fractalCount: 1,
-  fractalDepth: 5,
-  baseColor: "#000000",
-  play: false,
-  playbackSpeed: 0,
-};
-
-interface MenuProps {
-  onSubmit: (values: MenuData) => void;
-}
-
-export const Menu = (props: MenuProps) => {
-  const [state, setState] = useState(initialFormProps);
+export const Menu = (props: FractalProps) => {
+  const [state, setState] = useState(props.defaultValue);
 
   return (
     <MenuStyled>
