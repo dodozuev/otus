@@ -19,6 +19,7 @@ export const FormStyled = styled.form`
 export const ButtonStyled = styled.button`
   width: 100%;
   border-radius: 20px;
+  font-size: inherit;
   height: 3em;
 `;
 

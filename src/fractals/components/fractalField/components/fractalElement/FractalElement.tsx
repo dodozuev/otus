@@ -1,9 +1,11 @@
-export interface FractalElementProps {
-  depth: number;
-}
+import { FractalBase, FractalProps } from "./FractalElement.styles";
 
-export const FractalElement = (props: FractalElementProps) => {
+import React from "react";
+
+export const FractalElement = (props: FractalProps) => {
   if (props.depth === 0) {
-    return;
+    return <FractalBase posX={props.posX} posY={props.posY} />;
   }
+
+  return <FractalBase posX={props.posX} posY={props.posY} />; // TODO: fix that
 };

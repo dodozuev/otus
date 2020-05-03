@@ -29,7 +29,7 @@ export const initialFormProps: FractalData = {
 
 export const FractalWindow = () => {
   const [state, setState] = useState(initialFormProps);
-
+  console.log("redraw fractalwindow");
   return (
     <FractalContainer>
       <Menu

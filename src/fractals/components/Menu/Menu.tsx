@@ -1,12 +1,12 @@
 import { ButtonStyled, FormStyled, MenuStyled } from "./Menu.styles";
+import { FractalProps, initialFormProps } from "../FractalWindow";
 import React, { useState } from "react";
 
-import { FractalProps } from "../FractalWindow";
 import { LabeledInput } from "./components/LabeledInput";
 
 export const Menu = (props: FractalProps) => {
   const [state, setState] = useState(props.defaultValue);
-
+  console.log("redraw menu: ", state);
   return (
     <MenuStyled>
       <FormStyled
@@ -66,6 +66,15 @@ export const Menu = (props: FractalProps) => {
         }}
       >
         {state.play ? "Стоп" : "Старт"}
+      </ButtonStyled>
+
+      <ButtonStyled
+        onClick={() => {
+          props.onSubmit(initialFormProps);
+          setState(initialFormProps);
+        }}
+      >
+        Сброс
       </ButtonStyled>
     </MenuStyled>
   );

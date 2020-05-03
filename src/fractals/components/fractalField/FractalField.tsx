@@ -1,4 +1,5 @@
 import { FractalData } from "../FractalWindow";
+import { FractalElement } from "./components/fractalElement/FractalElement";
 import { FractalFieldStyled } from "./FractalField.styles";
 import { Point } from "./Point";
 import React from "react";
@@ -21,11 +22,9 @@ export function getPositions(elementCount: number): Point[] {
 
   const elementsOnY = elementsOnProjection | 0;
   const yStep = windowHeight / (elementsOnY + 1);
-  console.log("elements on Y", elementsOnY);
 
   const elementsOnX = Math.ceil(elementCount / elementsOnY);
   const xStep = windowWidth / (elementsOnX + 1);
-  console.log("elements on X", elementsOnX);
 
   for (
     let yPosition = yStep;
@@ -38,11 +37,24 @@ export function getPositions(elementCount: number): Point[] {
       xPosition = xPosition + xStep
     ) {
       result.push({ X: xPosition, Y: yPosition });
+      if (result.length === elementCount) break;
     }
   }
   return result;
 }
 
 export const FractalField = (props: FractalData) => {
-  return <FractalFieldStyled />;
+  const points = getPositions(props.fractalCount);
+  return (
+    <FractalFieldStyled>
+      {points.map((p, index) => (
+        <FractalElement
+          depth={props.fractalDepth}
+          posX={p.X}
+          posY={p.Y}
+          key={index}
+        /> // TODO: think of fixing key dependency
+      ))}
+    </FractalFieldStyled>
+  );
 };
