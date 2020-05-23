@@ -22,7 +22,6 @@ export class Wallet extends Component<WalletProps, WalletState> {
   }
 
   componentDidCatch(error) {
-    console.log("error:", error);
     this.setState({ hasError: true });
   }
 

@@ -12,7 +12,6 @@ export interface FractalProps {
 export const Menu = (props: FractalProps) => {
   const [state, setState] = useState(props.defaultValue);
 
-  console.log("state", state);
   const playStopToggle = useCallback(() => {
     setState((s) => {
       return { ...s, play: !s.play };

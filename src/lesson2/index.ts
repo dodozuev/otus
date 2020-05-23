@@ -11,10 +11,6 @@ const question = (): Promise<null> =>
     rl.question("> ", (answer: string) => {
       const result = runner(answer);
 
-      if (result) {
-        console.log(`Result: ${result}`);
-      }
-
       resolve();
     });
   });

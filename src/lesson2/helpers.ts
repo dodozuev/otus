@@ -9,15 +9,9 @@ export const replaceSingleOperations = (
   stack.reduce<ParsedLineType>((result, item) => {
     const prevItem = result[result.length - 1];
 
-    console.log("Rresult", result);
-    console.log("Rprevitem", prevItem);
-    console.log("Ritem", item);
-
     if (!isNumber(String(item)) && singleItemMathOperators[item]) {
       const operatedValue = singleItemMathOperators[item](Number(prevItem));
-      console.log("operated", operatedValue);
       result = [...result.slice(0, result.length - 1), operatedValue];
-      console.log("result", result);
     } else result.push(item);
 
     return result;

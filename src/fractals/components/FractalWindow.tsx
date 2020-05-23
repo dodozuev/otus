@@ -24,7 +24,6 @@ export const initialFormState: FractalData = {
 
 export const FractalWindow = () => {
   const [state, setState] = useState(initialFormState);
-  console.log("redraw fractalwindow");
   return (
     <FractalContainer>
       <Menu onSubmit={setState} defaultValue={state} />
