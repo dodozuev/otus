@@ -1,11 +1,11 @@
 import { Menu } from "./Menu";
 import React from "react";
-import { initialFormProps } from "../FractalWindow";
+import { initialFormState } from "../FractalWindow";
 import { withKnobs } from "@storybook/addon-knobs";
 
 export const MenuStory = () => (
   <Menu
-    defaultValue={initialFormProps}
+    defaultValue={initialFormState}
     onSubmit={(e) => alert(JSON.stringify(e))}
   />
 );

@@ -1,12 +1,29 @@
 import { ButtonStyled, FormStyled, MenuStyled } from "./Menu.styles";
-import { FractalProps, initialFormProps } from "../FractalWindow";
-import React, { useState } from "react";
+import { FractalData, initialFormState } from "../FractalWindow";
+import React, { useCallback, useState } from "react";
 
 import { LabeledInput } from "./components/LabeledInput";
 
+export interface FractalProps {
+  onSubmit: (values: FractalData) => void;
+  defaultValue: FractalData;
+}
+
 export const Menu = (props: FractalProps) => {
   const [state, setState] = useState(props.defaultValue);
-  console.log("redraw menu: ", state);
+
+  console.log("state", state);
+  const playStopToggle = useCallback(() => {
+    setState((s) => {
+      return { ...s, play: !s.play };
+    });
+  }, []);
+
+  const reset = useCallback(() => {
+    props.onSubmit(initialFormState);
+    setState(initialFormState);
+  }, []);
+
   return (
     <MenuStyled>
       <FormStyled
@@ -57,25 +74,11 @@ export const Menu = (props: FractalProps) => {
           value={state.baseColor}
         />
       </FormStyled>
-      <ButtonStyled
-        onClick={() => {
-          setState((s) => {
-            return { ...s, play: !s.play };
-          });
-          props.onSubmit(state);
-        }}
-      >
+      <ButtonStyled onClick={playStopToggle}>
         {state.play ? "Стоп" : "Старт"}
       </ButtonStyled>
 
-      <ButtonStyled
-        onClick={() => {
-          props.onSubmit(initialFormProps);
-          setState(initialFormProps);
-        }}
-      >
-        Сброс
-      </ButtonStyled>
+      <ButtonStyled onClick={reset}>Сброс</ButtonStyled>
     </MenuStyled>
   );
 };

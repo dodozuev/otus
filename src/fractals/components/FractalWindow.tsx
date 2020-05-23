@@ -13,12 +13,7 @@ export interface FractalData {
   play: boolean;
 }
 
-export interface FractalProps {
-  onSubmit: (values: FractalData) => void;
-  defaultValue: FractalData;
-}
-
-export const initialFormProps: FractalData = {
+export const initialFormState: FractalData = {
   fieldSize: 400,
   fractalCount: 1,
   fractalDepth: 5,
@@ -28,16 +23,11 @@ export const initialFormProps: FractalData = {
 };
 
 export const FractalWindow = () => {
-  const [state, setState] = useState(initialFormProps);
+  const [state, setState] = useState(initialFormState);
   console.log("redraw fractalwindow");
   return (
     <FractalContainer>
-      <Menu
-        onSubmit={(v) => {
-          setState(v);
-        }}
-        defaultValue={state}
-      />
+      <Menu onSubmit={setState} defaultValue={state} />
       <FractalField {...state} />
     </FractalContainer>
   );
