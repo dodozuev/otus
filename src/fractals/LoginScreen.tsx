@@ -1,5 +1,7 @@
 import React, { useCallback, useState } from "react";
 
+import { storeUserName } from "./StorageUtils";
+
 interface LoginScreenProps {
   name: string;
   onNameUpdate: (s: string) => void;
@@ -8,9 +10,9 @@ export const LoginScreen: React.FC<LoginScreenProps> = (props) => {
   const [name, setName] = useState(props.name);
 
   const onSubmit = useCallback(
-    async (ev) => {
+    (ev) => {
       ev.preventDefault();
-      localStorage.setItem("userName", name);
+      storeUserName(name);
       props.onNameUpdate(name);
     },
     [name]

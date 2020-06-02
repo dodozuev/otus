@@ -4,6 +4,7 @@ import React, { useCallback, useState } from "react";
 import { CenteredModal } from "./app.styles";
 import { FractalWindow } from "./fractals/components/FractalWindow";
 import { LoginScreen } from "./fractals/LoginScreen";
+import { LogoutButton } from "./fractals/LogoutButton";
 import { NoMatchScreen } from "./NoMatchScreen";
 
 export const App = () => {
@@ -12,10 +13,6 @@ export const App = () => {
     (s: string) => setCurrState((x) => ({ ...x, userName: s })),
     []
   );
-  const logout = useCallback(() => {
-    localStorage.setItem("userName", name);
-    setUsername("");
-  }, []);
 
   return currState.userName === "" ? (
     <CenteredModal>
@@ -45,7 +42,7 @@ export const App = () => {
           </Route>
         </Switch>
       </Router>
-      <button onClick={logout}>Log out</button>
+      <LogoutButton onNameUpdate={setUsername} />
     </>
   );
 };

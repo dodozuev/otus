@@ -1,7 +1,3 @@
 import React from "react";
 
-export const NoMatchScreen: React.FC<{}> = () => (
-  <h1>
-    <b>404</b>
-  </h1>
-);
+export const NoMatchScreen: React.FC<{}> = () => <h1>404</h1>;
