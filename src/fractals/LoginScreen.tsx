@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { LoginState } from "./store";
 import { loginToWebsite } from "./thunk";
 
-export const LoginScreen: React.FC = () => {
+export const LoginScreen = () => {
   const userName = useSelector((state: LoginState) => state.name);
   const [name, setName] = useState(userName);
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ export const LoginScreen: React.FC = () => {
     <form onSubmit={onSubmit}>
       <label>
         Enter your name:
-        <input placeholder="Ivan" onChange={onChange} />
+        <input placeholder="Ivan" onChange={onChange} value={name} />
       </label>
       <button>Login</button>
     </form>

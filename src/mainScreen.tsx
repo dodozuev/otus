@@ -28,7 +28,7 @@ export const MainScreen = () => {
         </nav>
         <Switch>
           <Route path="/login">
-            <LoginScreen name={state.name} />
+            <LoginScreen />
           </Route>
           <Route path="/fractal" render={() => <FractalWindow />} />
           <Route path="*">
