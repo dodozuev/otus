@@ -5,8 +5,7 @@ import { shallow } from "enzyme";
 describe("LoginScreen", () => {
   it("navigates to user page on submit", async () => {
     const name = "DZ";
-    // <LoginScreen name="" />;
-    const screen = shallow(<LoginScreen name="" onNameUpdate={(a) => null} />);
+    const screen = shallow(<LoginScreen />);
     screen.find("input").simulate("change", { target: { value: name } });
     await screen
       .find("form")

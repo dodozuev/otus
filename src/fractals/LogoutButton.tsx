@@ -1,14 +1,12 @@
 import React from "react";
-import { resetUserName } from "./StorageUtils";
+import { logoutFromWebsite } from "./thunk";
 import { useCallback } from "react";
+import { useDispatch } from "react-redux";
 
-interface LogoutButtonProps {
-  onNameUpdate: (s: string) => void;
-}
-export const LogoutButton = (props: LogoutButtonProps) => {
-  const logout = useCallback(() => {
-    resetUserName();
-    props.onNameUpdate("");
+export const LogoutButton = () => {
+  const dispatch = useDispatch();
+  const logout = useCallback(async () => {
+    await dispatch(logoutFromWebsite());
   }, []);
   return (
     <button type="submit" onClick={logout}>

@@ -1,30 +1,29 @@
 import React, { useCallback, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { storeUserName } from "./StorageUtils";
+import { LoginState } from "./store";
+import { loginToWebsite } from "./thunk";
 
-interface LoginScreenProps {
-  name: string;
-  onNameUpdate: (s: string) => void;
-}
-export const LoginScreen: React.FC<LoginScreenProps> = (props) => {
-  const [name, setName] = useState(props.name);
-
+export const LoginScreen: React.FC = () => {
+  const userName = useSelector((state: LoginState) => state.name);
+  const [name, setName] = useState(userName);
+  const dispatch = useDispatch();
   const onSubmit = useCallback(
-    (ev) => {
+    async (ev) => {
       ev.preventDefault();
-      storeUserName(name);
-      props.onNameUpdate(name);
+      await dispatch(loginToWebsite(name));
     },
     [name]
+  );
+  const onChange = useCallback(
+    (ev) => setName((ev.target as HTMLInputElement).value),
+    []
   );
   return (
     <form onSubmit={onSubmit}>
       <label>
         Enter your name:
-        <input
-          placeholder="Ivan"
-          onChange={(ev) => setName((ev.target as HTMLInputElement).value)}
-        />
+        <input placeholder="Ivan" onChange={onChange} />
       </label>
       <button>Login</button>
     </form>
