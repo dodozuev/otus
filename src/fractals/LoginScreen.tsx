@@ -15,10 +15,9 @@ export const LoginScreen = () => {
     },
     [name]
   );
-  const onChange = useCallback(
-    (ev) => setName((ev.target as HTMLInputElement).value),
-    []
-  );
+  const onChange = useCallback((ev) => {
+    setName((ev.target as HTMLInputElement).value);
+  }, []);
   return (
     <form onSubmit={onSubmit}>
       <label>

@@ -1,16 +1,33 @@
+import { LoginStatus, storeCreator } from "./store";
+import { delay, userNameKey } from "./thunk";
+
 import { LoginScreen } from "./LoginScreen";
+import { Provider } from "react-redux";
 import React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
+
+"use strict";
 
 describe("LoginScreen", () => {
-  it("navigates to user page on submit", async () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+  it("launches login after submitting form", async () => {
+    const store = storeCreator();
     const name = "DZ";
-    const screen = shallow(<LoginScreen />);
+    const screen = mount(
+      <Provider store={store}>
+        <LoginScreen />
+      </Provider>
+    );
+
     screen.find("input").simulate("change", { target: { value: name } });
+
     await screen
       .find("form")
       .simulate("submit", { preventDefault: () => null });
 
-    expect(localStorage.getItem("userName")).toBe(name);
+    jest.runAllTimers();
+    expect(store.getState().login.status).toBe(LoginStatus.InProgress);
   });
 });
