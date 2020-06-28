@@ -23,7 +23,7 @@ export const LoginScreen = () => {
     <form onSubmit={onSubmit}>
       <label>
         Enter your name:
-        <input placeholder="Ivan" onChange={onChange} value={name} />
+        <input placeholder="Ivan" onChange={onChange} />
       </label>
       <button>Login</button>
     </form>

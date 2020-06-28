@@ -1,5 +1,5 @@
 import { Link, Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import { LoginState, LoginStatus } from "./fractals/store";
+import { LoginStatus, RootState } from "./fractals/store";
 
 import { FractalWindow } from "./fractals/components/FractalWindow";
 import { LoginModal } from "./fractals/LoginModal";
@@ -10,8 +10,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export const MainScreen = () => {
-  const state = useSelector((state: LoginState) => state);
-  if (state.status === LoginStatus.LoggedOut) return <LoginModal />;
+  const state = useSelector((state: RootState) => state.login);
+  if (state.status !== LoginStatus.LoggedIn) return <LoginModal />;
   return (
     <>
       <h3>Hello, {state.name}</h3>

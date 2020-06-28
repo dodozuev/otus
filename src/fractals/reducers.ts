@@ -1,7 +1,6 @@
-import { LoginState, LoginStatus } from "./store";
+import { ActionReducerMapBuilder, createReducer } from "@reduxjs/toolkit";
+import { LoginState, LoginStatus, initialFractalState } from "./store";
 import { loginToWebsite, logoutFromWebsite } from "./thunk";
-
-import { ActionReducerMapBuilder } from "@reduxjs/toolkit";
 
 export const LoginReducer = (
   builder: ActionReducerMapBuilder<LoginState>
