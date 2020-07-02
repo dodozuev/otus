@@ -1,5 +1,4 @@
 import { LoginStatus, storeCreator } from "./store";
-import { delay, userNameKey } from "./thunk";
 
 import { LoginScreen } from "./LoginScreen";
 import { Provider } from "react-redux";

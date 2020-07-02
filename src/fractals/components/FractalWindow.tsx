@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-
 import { FractalContainer } from "./FractalWindow.styles";
 import { FractalField } from "./fractalField/FractalField";
 import { Menu } from "./Menu/Menu";
+import React from "react";
+import { RootState } from "../store";
+import { useSelector } from "react-redux";
 
 export interface FractalData {
   fieldSize: number;
@@ -13,21 +14,13 @@ export interface FractalData {
   play: boolean;
 }
 
-export const initialFormState: FractalData = {
-  fieldSize: 400,
-  fractalCount: 1,
-  fractalDepth: 5,
-  baseColor: "#000000",
-  play: false,
-  playbackSpeed: 0,
-};
-
 export const FractalWindow = () => {
-  const [state, setState] = useState(initialFormState);
+  const fractalMenuData = useSelector((state: RootState) => state.fractal);
+  console.log(fractalMenuData);
   return (
     <FractalContainer>
-      <Menu onSubmit={setState} defaultValue={state} />
-      <FractalField {...state} />
+      <Menu value={fractalMenuData} />
+      <FractalField {...fractalMenuData} />
     </FractalContainer>
   );
 };

@@ -1,5 +1,15 @@
 import { LoginReducer, LogoutReducer } from "./reducers";
-import { combineReducers, configureStore, createSlice } from "@reduxjs/toolkit";
+import {
+  combineReducers,
+  configureStore,
+  createSlice,
+  getDefaultMiddleware,
+} from "@reduxjs/toolkit";
+
+import { FractalData } from "./components/FractalWindow";
+import createSagaMiddleware from "redux-saga";
+import { startResetSettings } from "./actions";
+import { watchResetSettings } from "./sagas";
 
 export enum LoginStatus {
   LoggedOut = 0,
@@ -32,7 +42,7 @@ export interface FractalState {
 }
 
 const initialFractalState: FractalState = {
-  fieldSize: 400,
+  fieldSize: 500,
   fractalCount: 1,
   fractalDepth: 5,
   baseColor: "#000000",
@@ -40,14 +50,25 @@ const initialFractalState: FractalState = {
   playbackSpeed: 0,
 };
 
-const fractalSlice = createSlice({
+export const fractalSlice = createSlice({
   name: "fractalSlice",
   initialState: initialFractalState,
   reducers: {
-    resetSettings: () => initialFractalState,
-    updateSettings: (state: FractalState, action) => {
-      action.payload;
+    resetSettings: (state: FractalState) => {
+      state = initialFractalState;
+      return state;
     },
+    toggleAction: (state: FractalState) => {
+      state.play = !state.play;
+    },
+    updateSettings: (state: FractalData, action) => {
+      console.log("action", action.payload);
+      return action.payload;
+    },
+  },
+  extraReducers: (builder) => {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    builder.addCase(startResetSettings, () => {});
   },
 });
 
@@ -57,5 +78,12 @@ const rootReducer = combineReducers({
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
-export const storeCreator = () => configureStore({ reducer: rootReducer });
+export const sagaMiddleware = createSagaMiddleware();
+export const storeCreator = () =>
+  configureStore({
+    reducer: rootReducer,
+    middleware: [...getDefaultMiddleware(), sagaMiddleware],
+  });
 export const store = storeCreator();
+store.dispatch(fractalSlice.actions.resetSettings);
+sagaMiddleware.run(watchResetSettings);

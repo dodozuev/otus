@@ -1,4 +1,4 @@
-import { LoginState, LoginStatus } from "./store";
+import { FractalState, LoginState, LoginStatus } from "./store";
 import { loginToWebsite, logoutFromWebsite } from "./thunk";
 
 import { ActionReducerMapBuilder } from "@reduxjs/toolkit";

@@ -1,34 +1,37 @@
 import { ButtonStyled, FormStyled, MenuStyled } from "./Menu.styles";
-import { FractalData, initialFormState } from "../FractalWindow";
 import React, { useCallback, useState } from "react";
 
+import { FractalData } from "../FractalWindow";
 import { LabeledInput } from "./components/LabeledInput";
+import { fractalSlice } from "../../store";
+import { startResetSettings } from "../../actions";
+import { useDispatch } from "react-redux";
 
 export interface FractalProps {
-  onSubmit: (values: FractalData) => void;
-  defaultValue: FractalData;
+  value: FractalData;
 }
 
 export const Menu = (props: FractalProps) => {
-  const [state, setState] = useState(props.defaultValue);
-
+  const [state, setState] = useState(props.value);
+  const isPlaying = state.play;
+  const dispatch = useDispatch();
   const playStopToggle = useCallback(() => {
-    setState((s) => {
-      return { ...s, play: !s.play };
-    });
+    dispatch(fractalSlice.actions.toggleAction());
   }, []);
 
   const reset = useCallback(() => {
-    props.onSubmit(initialFormState);
-    setState(initialFormState);
-  }, []);
+    dispatch(startResetSettings());
+  }, [state]);
+  const submit = useCallback(() => {
+    dispatch(fractalSlice.actions.updateSettings(state));
+  }, [state]);
 
   return (
     <MenuStyled>
       <FormStyled
         onSubmit={(e) => {
           e.preventDefault();
-          props.onSubmit(state);
+          submit();
         }}
       >
         <LabeledInput
@@ -74,9 +77,9 @@ export const Menu = (props: FractalProps) => {
         />
       </FormStyled>
       <ButtonStyled onClick={playStopToggle}>
-        {state.play ? "Стоп" : "Старт"}
+        {isPlaying ? "Стоп" : "Старт"}
       </ButtonStyled>
-
+      <ButtonStyled onClick={submit}>Сохранить настройки</ButtonStyled>
       <ButtonStyled onClick={reset}>Сброс</ButtonStyled>
     </MenuStyled>
   );
