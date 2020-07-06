@@ -4,11 +4,15 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "paths": {
-      "config/*": ["src/config/*"],
-      "store/*": ["src/store/*"],
-      "utils/*": ["src/utils/*"]
+      "components/*": ["src/components/*"],
+      "@/*": ["src/*"]
     },
-    "jsx": "react"
+    "module": "commonjs",
+    "allowJs": true,
+    "jsx": "react",
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true
   },
   "exclude": ["node_modules"]
 }
