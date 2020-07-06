@@ -1,4 +1,4 @@
-import { CenteredModal } from "../app.styles";
+import { CenteredModal } from "./LoginModal.styles";
 import { LoginScreen } from "./LoginScreen";
 import React from "react";
 

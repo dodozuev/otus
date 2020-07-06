@@ -2,9 +2,9 @@ import { ButtonStyled, FormStyled, MenuStyled } from "./Menu.styles";
 import React, { useCallback, useState } from "react";
 
 import { FractalData } from "../FractalWindow";
-import { LabeledInput } from "./components/LabeledInput";
-import { fractalSlice } from "../../store";
-import { startResetSettings } from "../../actions";
+import { LabeledInput } from "./labeledInput/LabeledInput";
+import { fractalSlice } from "../../fractals/store";
+import { startResetSettings } from "../../modules/FractalMenu/actions";
 import { useDispatch } from "react-redux";
 
 export interface FractalProps {

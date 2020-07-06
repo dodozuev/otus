@@ -1,4 +1,4 @@
-import { LoginStatus, storeCreator } from "./store";
+import { LoginStatus, storeCreator } from "../../store";
 
 import { LoginScreen } from "./LoginScreen";
 import { Provider } from "react-redux";

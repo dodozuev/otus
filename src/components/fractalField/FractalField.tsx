@@ -1,5 +1,5 @@
 import { FractalData } from "../FractalWindow";
-import { FractalElement } from "./components/fractalElement/FractalElement";
+import { FractalElement } from "./FractalElement";
 import { FractalFieldStyled } from "./FractalField.styles";
 import { Point } from "./Point";
 import React from "react";

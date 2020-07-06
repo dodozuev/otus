@@ -1,4 +1,4 @@
-import { LoginReducer, LogoutReducer } from "./reducers";
+import { LoginReducer, LogoutReducer } from "../modules/Login/reducers";
 import {
   combineReducers,
   configureStore,
@@ -6,10 +6,10 @@ import {
   getDefaultMiddleware,
 } from "@reduxjs/toolkit";
 
-import { FractalData } from "./components/FractalWindow";
+import { FractalData } from "../components/FractalWindow";
 import createSagaMiddleware from "redux-saga";
-import { startResetSettings } from "./actions";
-import { watchResetSettings } from "./sagas";
+import { startResetSettings } from "../modules/FractalMenu/actions";
+import { watchResetSettings } from "../modules/FractalMenu/sagas";
 
 export enum LoginStatus {
   LoggedOut = 0,
@@ -41,7 +41,7 @@ export interface FractalState {
   play: boolean;
 }
 
-const initialFractalState: FractalState = {
+export const initialFractalState: FractalState = {
   fieldSize: 500,
   fractalCount: 1,
   fractalDepth: 5,
