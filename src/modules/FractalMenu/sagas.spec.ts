@@ -1,7 +1,7 @@
-import { call, fork, takeEvery } from "redux-saga/effects";
-import { delay, resetSettingsSaga, watchResetSettings } from "./sagas";
+import { resetSettingsSaga, watchResetSettings } from "./sagas";
 
 import { startResetSettings } from "./actions";
+import { takeEvery } from "redux-saga/effects";
 
 describe("watchResetSettings", () => {
   it("should dispatch resetSettingsSaga", () => {
