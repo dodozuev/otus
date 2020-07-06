@@ -1,8 +1,8 @@
 import { FractalContainer } from "./FractalWindow.styles";
-import { FractalField } from "./fractalField/FractalField";
-import { Menu } from "./menu/Menu";
+import { FractalField } from "./FractalField";
+import { Menu } from "./Menu";
 import React from "react";
-import { RootState } from "../store";
+import { RootState } from "../../store";
 import { useSelector } from "react-redux";
 
 export interface FractalData {

@@ -1,4 +1,4 @@
-import { FractalData } from "../FractalWindow";
+import { FractalData } from "./FractalWindow";
 import { FractalElement } from "./FractalElement";
 import { FractalFieldStyled } from "./FractalField.styles";
 import { Point } from "./Point";
