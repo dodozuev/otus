@@ -1,4 +1,3 @@
-import { LoginReducer, LogoutReducer } from "../modules/Login/reducers";
 import {
   combineReducers,
   configureStore,
@@ -6,30 +5,10 @@ import {
   getDefaultMiddleware,
 } from "@reduxjs/toolkit";
 
-import { FractalData } from "../components/FractalWindow";
+import { FractalData } from "./components/FractalWindow";
 import createSagaMiddleware from "redux-saga";
-import { startResetSettings } from "../modules/FractalMenu/actions";
-import { watchResetSettings } from "../modules/FractalMenu/sagas";
-
-export enum LoginStatus {
-  LoggedOut = 0,
-  LoggedIn = 1,
-  InProgress = 2,
-}
-export interface LoginState {
-  status: LoginStatus;
-  name: string;
-}
-
-const loginSlice = createSlice({
-  name: "loginSlice",
-  initialState: { status: LoginStatus.LoggedOut } as LoginState,
-  reducers: {},
-  extraReducers: (builder) => {
-    LoginReducer(builder);
-    LogoutReducer(builder);
-  },
-});
+import { loginSlice } from "./modules/Login/slice";
+import { startResetSettings } from "./modules/FractalMenu/actions";
 
 // TODO: export to separate file
 export interface FractalState {

@@ -1,7 +1,16 @@
-import { LoginState, LoginStatus } from "../../store";
 import { loginToWebsite, logoutFromWebsite } from "./thunk";
 
 import { ActionReducerMapBuilder } from "@reduxjs/toolkit";
+
+export enum LoginStatus {
+  LoggedOut = 0,
+  LoggedIn = 1,
+  InProgress = 2,
+}
+export interface LoginState {
+  status: LoginStatus;
+  name: string;
+}
 
 export const LoginReducer = (
   builder: ActionReducerMapBuilder<LoginState>

@@ -1,7 +1,7 @@
 import { MainScreen } from "./mainScreen";
 import { Provider } from "react-redux";
 import React from "react";
-import { store } from "./fractals/store";
+import { store } from "./store";
 
 export const App = () => {
   return (
