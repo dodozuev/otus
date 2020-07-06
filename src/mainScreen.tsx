@@ -1,6 +1,6 @@
 import { Link, Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
-import { FractalWindow } from "./components/FractalWindow";
+import { FractalWindow } from "./modules/FractalMenu/FractalWindow";
 import { LoginModal } from "./modules/Login/LoginModal";
 import { LoginScreen } from "./modules/Login/LoginScreen";
 import { LoginStatus } from "./modules/Login/reducers";

@@ -5,7 +5,7 @@ import {
   getDefaultMiddleware,
 } from "@reduxjs/toolkit";
 
-import { FractalData } from "./components/FractalWindow";
+import { FractalData } from "./modules/FractalMenu/FractalWindow";
 import createSagaMiddleware from "redux-saga";
 import { loginSlice } from "./modules/Login/slice";
 import { startResetSettings } from "./modules/FractalMenu/actions";
