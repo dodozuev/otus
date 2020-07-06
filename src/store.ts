@@ -9,6 +9,7 @@ import { FractalData } from "./components/FractalWindow";
 import createSagaMiddleware from "redux-saga";
 import { loginSlice } from "./modules/Login/slice";
 import { startResetSettings } from "./modules/FractalMenu/actions";
+import { watchResetSettings } from "./modules/FractalMenu/sagas";
 
 // TODO: export to separate file
 export interface FractalState {
@@ -41,7 +42,6 @@ export const fractalSlice = createSlice({
       state.play = !state.play;
     },
     updateSettings: (state: FractalData, action) => {
-      console.log("action", action.payload);
       return action.payload;
     },
   },

@@ -1,12 +1,13 @@
 import { Link, Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import { LoginStatus, RootState } from "./fractals/store";
 
 import { FractalWindow } from "./components/FractalWindow";
-import { LoginModal } from "./fractals/LoginModal";
-import { LoginScreen } from "./fractals/LoginScreen";
-import { LogoutButton } from "./fractals/LogoutButton";
+import { LoginModal } from "./modules/Login/LoginModal";
+import { LoginScreen } from "./modules/Login/LoginScreen";
+import { LoginStatus } from "./modules/Login/reducers";
+import { LogoutButton } from "./modules/Login/LogoutButton";
 import { NoMatchScreen } from "./NoMatchScreen";
 import React from "react";
+import { RootState } from "./store";
 import { useSelector } from "react-redux";
 
 export const MainScreen = () => {

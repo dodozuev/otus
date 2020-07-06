@@ -1,9 +1,9 @@
-import { LoginStatus, storeCreator } from "../../store";
-
 import { LoginScreen } from "./LoginScreen";
+import { LoginStatus } from "./reducers";
 import { Provider } from "react-redux";
 import React from "react";
 import { mount } from "enzyme";
+import { storeCreator } from "../../store";
 
 "use strict";
 

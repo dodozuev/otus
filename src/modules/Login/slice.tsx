@@ -1,5 +1,9 @@
-import { LoginReducer, LogoutReducer } from "./reducers";
-import { LoginState, LoginStatus } from "../../store";
+import {
+  LoginReducer,
+  LoginState,
+  LoginStatus,
+  LogoutReducer,
+} from "./reducers";
 
 import { createSlice } from "@reduxjs/toolkit";
 

@@ -3,7 +3,7 @@ import React, { useCallback, useState } from "react";
 
 import { FractalData } from "../FractalWindow";
 import { LabeledInput } from "./labeledInput/LabeledInput";
-import { fractalSlice } from "../../fractals/store";
+import { fractalSlice } from "../../store";
 import { startResetSettings } from "../../modules/FractalMenu/actions";
 import { useDispatch } from "react-redux";
 

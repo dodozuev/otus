@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { LoginState } from "../../store";
+import { LoginState } from "./reducers";
 import { loginToWebsite } from "./thunk";
 
 export const LoginScreen = () => {
