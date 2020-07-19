@@ -1,9 +1,8 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 
+import { delay } from "utils/delay";
 import { fractalSlice } from "../../store";
 import { startResetSettings } from "./actions";
-
-export const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
 export function* resetSettingsSaga() {
   yield call(delay, 2000);

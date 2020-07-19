@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
-export const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+import { delay } from "utils/delay";
 
 export const userNameKey = "userName";
 export const loginToWebsite = createAsyncThunk(
