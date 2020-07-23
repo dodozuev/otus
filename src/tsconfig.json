@@ -4,7 +4,9 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "paths": {
-      "@components/*": ["src/components/*"]
+      "@Components/*": ["src/components/*"],
+      "@Utils/*": ["src/utils/*"],
+      "@Modules/*": ["src/modules/*"]
     },
     "moduleResolution": "node",
     "module": "commonjs",

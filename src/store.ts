@@ -5,8 +5,8 @@ import {
 } from "@reduxjs/toolkit";
 
 import createSagaMiddleware from "redux-saga";
-import { fractalSlice } from "modules/FractalMenu/slice";
-import { loginSlice } from "./modules/Login/slice";
+import { fractalSlice } from "Modules/FractalMenu/slice";
+import { loginSlice } from "Modules/Login/slice";
 import { watchResetSettings } from "./modules/FractalMenu/sagas";
 
 // TODO: export to separate file

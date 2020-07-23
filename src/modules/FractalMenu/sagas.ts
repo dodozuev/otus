@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 
-import { delay } from "utils/delay";
-import { fractalSlice } from "../../store";
+import { delay } from "Utils/delay";
+import { fractalSlice } from "./slice";
 import { startResetSettings } from "./actions";
 
 export function* resetSettingsSaga() {

@@ -1,4 +1,4 @@
-import { FractalState, initialFractalState } from "modules/Login/slice";
+import { FractalState, initialFractalState } from "Modules/Login/slice";
 
 import { FractalData } from "./FractalWindow";
 import { createSlice } from "@reduxjs/toolkit";

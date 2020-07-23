@@ -2,7 +2,7 @@ import { ButtonStyled, FormStyled, MenuStyled } from "./Menu.styles";
 import React, { useCallback, useState } from "react";
 
 import { FractalData } from "./FractalWindow";
-import { LabeledInput } from "components/LabeledInput/LabeledInput";
+import { LabeledInput } from "Components/LabeledInput/LabeledInput";
 import { fractalSlice } from "./slice";
 import { startResetSettings } from "./actions";
 import { useDispatch } from "react-redux";

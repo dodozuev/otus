@@ -8,7 +8,9 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
     alias: {
-      components: path.resolve(__dirname, "src/components"),
+      Components: path.resolve(__dirname, "src/components/"),
+      Utils: path.resolve(__dirname, "src/utils/"),
+      Modules: path.resolve(__dirname, "src/modules/"),
     },
   },
   output: {
